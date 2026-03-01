@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Humanoide Reparador</title>
+  <style>
+    body {
+      background: #f0f3f5;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .humanoide {
+      width: 160px;
+      animation: flotar 4s ease-in-out infinite;
+    }
+
+    .ojo {
+      animation: parpadeo 4s infinite;
+    }
+
+    @keyframes parpadeo {
+      0%, 90%, 100% { r: 3; }
+      95% { r: 0; }
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* 😃 Contento */
+    .contento path.boca {
+      d: path("M44 60 Q50 65 56 60");
+      stroke: #2ecc71;
+    }
+
+    /* 😢 Triste */
+    .triste path.boca {
+      d: path("M44 65 Q50 60 56 65");
+      stroke: #e74c3c;
+    }

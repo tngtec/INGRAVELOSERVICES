@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encabezado con Logo</title>
+  <style>
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      background: black;
+      color: white;
+      z-index: 100;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-left: 30px;
+      border-radius: 50px;
+      transition: border 0.3s ease, border-radius 0.3s ease;
+    }
+
+    .logo img:hover {
+      border: 4px solid blueviolet;
+      border-radius: 30px;
+    }
+
+    /* Espaciado para probar scroll */
+    body {
+      margin: 0;
+      padding-top: 80px;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <header><!--Contenedor principal del menú.-->
+  
+    <div class="logo"><!--Título o nombre del sitio.-->
+      <span>Mi Empresa</span>
+      <img src="https://via.placeholder.com/50" alt="Logo de la empresa">
+    </div>
+    <nav>
+      <!-- Menú de ejemplo -->
+      <a href="#" style="color: white; margin-right: 15px;">Inicio</a>
+      <a href="#" style="color: white;">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>Contenido de ejemplo debajo del encabezado fijo...</p>
+    <p style="margin-top: 1000px;">(Scroll para probar efecto sticky)</p>
+  </main>
+
+</body>
+</html>
