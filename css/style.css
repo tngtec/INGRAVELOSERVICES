@@ -1,901 +1,411 @@
-/*Le da propiedad al cuerpo principal de toda la pagina  */
-
-body{
-   margin:0;
-   font-family: Arial, Helvetica, sans-serif;
-   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-   padding-bottom: 5em; /*Le da scroll a la pagina*/
-
-  }
-
-  
-
-/*Le da propiedad al Encabezado  solamente de la Pagina Web  donde esta el Menu  */
-header{
-  position: fixed;           /* Hace que el encabezado se quede arriba al hacer scroll */
-  top: 0;                    /* Lo fija en la parte superior */
-  left: 0;                   /* Alineado al borde izquierdo */
-  width: 100%;               /* Ocupa todo el ancho de la pantalla */
-  height: 75px;              /* Altura del encabezado */
-  display: flex;             /* Distribuye contenido horizontalmente */
-  justify-content: space-between;/*Alinea los elementos   del contenedor flexible cuando los elementos no utilizan todo el espacio disponible en el eje principal (horizontalmente).*/
-  align-items: center;       /* Centra verticalmente los elementos */
-  padding: 0 10px;           /* Espaciado interno izquierdo y derecho */
-  background: black;         /* Fondo sólido */
-  color: white;              /* Texto blanco el Titulo y las letras del Menu */
-  z-index: 100;              /* Está por encima de otros elementos Asegura que el encabezado se muestre encima de otros elementos  */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /*Agrega una sombra difusa y moderna por debajo del encabezado, dándole efecto de profundidad.*/
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+/* =========================================
+   RESET Y ESTILOS BASE
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-/*position: fixed Hace que el encabezado se mantenga fijo en la parte superior, sin desplazarse al hacer scroll. */
-/* top:0 y Left:0 Coloca el encabezado en la esquina superior izquierda de la ventana del navegador.*/
-/* width: 100% Ocupa todo el ancho de la pantalla, útil para encabezados horizontales. */
-/* height: 70px Define una altura constante de 70 píxeles, lo que brinda un área visible razonable sin ocupar demasiado espacio. */
-/* display: flex	Habilita Flexbox para alinear fácilmente el contenido (como logo, menú, etc.).*/
-/* justify-content: space-between Distribuye los elementos de forma que el primero esté a la izquierda y el último a la derecha, dejando espacio entre ellos */
-/* align-items: center	Centra verticalmente el contenido dentro del encabezado.*/
-/* padding: 0 10px	Aplica un espaciado lateral de 20 píxeles para evitar que el contenido toque los bordes. */
-/* background: black	Asigna un fondo negro sólido, ideal para una apariencia elegante.*/
-/* color: white	Define el color de texto como blanco, lo cual mejora el contraste y la legibilidad.? */
-/* z-index: 100	Asegura que el encabezado se muestre encima de otros elementos con valores z-index más bajos.*/
-/* Suaviza las transiciones visuales cuando cambian el fondo o la sombra (por ejemplo, al hacer scroll).*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-
-/*Le da propiedad a la Class Logo donde esta la Imagen del logo IT y el Nombre de la Empresa */
+/* =========================================
+   HEADER Y NAVEGACIÓN
+   ========================================= */
+header {
+    background: #ffffff;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
 .logo {
-  display: flex;/*Activa el modelo Flexbox para organizar el contenido del logo en línea horizontal. Útil si incluye imagen + texto.*/
-  align-items:center;/*Centra verticalmente los elementos hijos del .logo, como la imagen del logo y texto opcional. */
-  font-family: Arial, Helvetica, sans-serif;/*Define una tipografía moderna y legible para cualquier texto incluido en el logo. Se proporciona una lista de respaldo en caso de que una fuente no esté disponible.*/
-  font-size: 10px;/*Establece un tamaño de letra pequeño, que puede acompañar el logo sin robarle protagonismo.*/
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
-
-
-/*Le da propiedad a la imagen del logo  */
 
 .logo img {
- height:50px;/*Define una altura uniforme de 50 píxeles para la imagen, manteniéndola proporcional.*/
- margin-left:20px;/*Agrega espacio a la izquierda de la imagen (útil cuando el logo aparece a la derecha del texto).*/
- border-radius:50px ;/*Hace que la imagen tenga bordes completamente redondeados, creando un efecto circular si la imagen es cuadrada */
- transition: border 0.3s ease, border-radius 0.3s ease;/*- border: se animará cuando el borde cambie
-- border-radius: la curvatura también se transicionará suavemente
-- 0.3s: la duración de la transición será de 0.3 segundos
-- ease: aplica una curva de aceleración suave (puedes usar también linear, ease-in, ease-out…) Cuando el usuario pase el cursor por encima (hover), el borde y el borde redondeado cambiarán gradualmente en lugar de hacerlo de golpe, lo que genera una experiencia visual más agradable.
- */
-
-} 
-
-.logo img:hover {
- 
-border:4px solid rgb(37, 7, 172);/*Al colocar el cursor sobre la imagen, aparece un borde morado de 4px, creando un efecto visual llamativo.*/
-border-radius: 30px;/*Cambia el radio del borde a 30px, haciéndolo menos circular si la imagen era redonda originalmente.*/ 
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*La propiedad position: relative en CSS establece un contexto de posicionamiento para los elementos hijos que usen position: absolute. Esto significa que cualquier elemento dentro del <nav> que esté posicionado absolutamente se ubicará en relación al <nav>, no al documento completo.
- */
-
-/* El elemento <nav> no se mueve visualmente (a menos que le des top, left, etc.).
-- Pero ahora sirve como referencia para posicionar elementos hijos con position: absolute.
- Ese es el menu en General
- */
-nav {
- position: relative;
- gap: 1rem;
- border-radius: 10px;
- 
+.nombre-empresa {
+    font-size: 1.2rem;
+    color: #0056b3;
+    font-weight: 700;
 }
-/*Se le da estilos al Menu a los elementos de la lista desordenada Begining,About Us,Contact Us,Services,Products */
+
+/* Menú de Escritorio */
 nav ul {
-  list-style: none;/* Esta propiedad elimina los puntos o simbolos por defecto de los elementos de las lista  <li> */
-  margin: 0;/*Quita cualquier margen exterior del <ul>. Ayuda a evitar espacios inesperados en la estructura del menú.*/
-  padding:0;/*Elimina el relleno interior del <ul>. Esto es útil para controlar el diseño con precisión*/
-  display: flex;/*Convierte el <ul> en un contenedor flexible. Los elementos hijos (<li>) se colocan en línea, uno al lado del otro.  
-  Begining,About Us,Contact Us,Services,Products*/
-  flex-wrap: wrap;/*Permite que los elementos se envuelvan en la siguiente línea si el espacio horizontal no es suficiente. Esto mejora la responsividad en pantallas más pequeñas.*/
-  
- 
+    display: flex;
+    list-style: none;
+    gap: 20px;
 }
-/*Este selector aplica estilos a cada elemento de lista (<li>) que está dentro de un <ul> dentro de un <nav>. Es decir, afecta a cada ítem principal del menú.*/
+
 nav ul li {
-  position: relative;/*- 🧭 Propósito estructural: Define un contexto de posicionamiento para cualquier elemento hijo con position: absolute, como los .submenu.
-- 💡 Esto permite que los submenús se ubiquen correctamente justo debajo de su respectivo <li>, sin salirse del flujo visual del menú
-    la posicion relativa de cada li debajo de cada ul*/
-  padding:0px 5px;/* Añade 10 píxeles de espacio a la izquierda y derecha de cada ítem del menú, sin agregar espacio arriba ni abajo.*/
-  color:white;
- 
+    position: relative;
 }
-/*Este bloque,está perfeccionando el estilo de los enlaces <a> dentro de cada ítem de menú.
- */
+
 nav ul li a {
-  display: block;/*Convierte el enlace en un bloque completo, haciendo que ocupe todo el ancho disponible dentro del <li>. Ideal para que el área clicable sea amplia y uniforme.*/
-  padding: 20px 30px;
-  color: white;/*El texto del enlace se verá blanco */
-  text-decoration: none;/*Elimina el subrayado predeterminado de los enlaces. */
-  transition: background 0.3s ease;/* Aplica una transición suave en el fondo cuando el usuario pasa el cursor por encima (hover). Mejora la experiencia visual al evitar cambios bruscos.*/
- 
-  
-}
-nav a:hover {
-      background-color: #555;
+    font-weight: 600;
+    padding: 10px 15px;
+    display: block;
+    color: #333;
+    transition: color 0.3s;
 }
 
-/* le da  cuando pasa el mouese hace el efecto hover cuando pasa el mouse*/
 nav ul li a:hover {
-
-  color:rgb(43, 174, 226);
-  
+    color: #0056b3;
 }
 
-/* Submenu styles Cuando el usuario pasa el mouse sobre el ítem del menú, el submenú aparece justo debajo, con buena visibilidad y orden. */
+/* Submenús Desplegables */
 .submenu {
-  position: absolute; /*Sitúa el submenú en relación con el elemento padre que tenga position: relative (normalmente el <li>). Esto lo saca del flujo normal del documento para poder ubicarlo libremente.*/
-  background-color: #01070e;/*Define el color de fondo del submenú. En este caso, un tono muy oscuro ideal para resaltar texto claro. */
-  top: 100%;/*Coloca el submenú justo debajo del elemento padre (<li>), aprovechando su altura como referencia.*/
-  display: none;/*Coloca el submenú justo debajo del elemento padre (<li>), aprovechando su altura como referencia.*/
-  left: 0;/*Alinea el submenú al borde izquierdo del elemento padre (<li>)*/
-  min-width: 250px;/*Establece un ancho mínimo para el submenú, asegurando que todos los ítems tengan suficiente espacio */
-  flex-direction: column;/*Organiza los ítems dentro del submenú en una columna vertical, gracias a que display: flex; se aplicará cuando se muestre.*/
-  z-index: 1000;/* */
-}
-/*“Cuando el usuario pasa el mouse por encima (:hover) de un elemento <li> dentro de <ul> dentro de <nav>, entonces el .submenu que está dentro de ese <li> debe mostrarse usando display: flex.” */
-nav ul li:hover .submenu {
-  display: flex;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    flex-direction: column;
+    gap: 0;
+    border-radius: 0 0 5px 5px;
 }
 
-/*Este bloque CSS aplica estilo a los enlaces (<a>) dentro de cada elemento de lista (<li>) que esté dentro de un contenedor con la clase .submenu. Aquí te explico cada propiedad:*/
+nav ul li:hover .submenu {
+    display: flex;
+}
 
 .submenu li a {
-  padding: 10px 10px;/*agrega espacio interno de 10 píxeles arriba/abajo y 10 píxeles a los lados dentro del enlace. Esto hace que el área clickeable del enlace sea más grande, mejorando la usabilidad.*/
-
-  font-size:1em;/*establece el tamaño de la fuente del enlace igual al tamaño de fuente del elemento padre. Es una forma flexible de mantener proporciones en distintos dispositivos.*/
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
 }
 
-/* Toggle for mobile  Este fragmento de CSS define el estilo de un botón que comúnmente se utiliza para mostrar u ocultar el menú en dispositivos móviles. Vamos línea por línea: */
+.submenu li a:hover {
+    background: #f1f5f9;
+    color: #0056b3;
+}
 
+/* Ícono Hamburguesa (Oculto en PC) */
 .menu-toggle {
-      display: none; /*  Oculta el botón hamburguesa en pantallas grandes. Esto se modifica luego dentro de una media query para que aparezca en móviles.*/
-      flex-direction: column;/*- Hace que las tres barras del botón (los span) se apilen verticalmente, creando el ícono tipo “menú”.*/
-      cursor: pointer;/*- Cambia el cursor cuando pasas el ratón por encima, indicando que es clickeable.*/
- }
-
-/* 
-/* .Botón hamburguesa (3 líneas) que aparece en pantallas pequeñas. */
- .menu-toggle span {
-      height: 3px;/*: Define el grosor de cada línea */
-      width: 25px;/*Es el largo horizontal de la línea.  */
-      background: white;/*Les da color blanco (perfecto para menú sobre fondo oscuro). */
-      margin: 4px 0;/*Agrega espacio vertical entre cada línea.*/
-      transition: 0.4s;/* Agrega espacio vertical entre cada línea. */
-}
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
- 
-
-.contenedor {
-    
-  display:flex;/* Utiliza Flexbox para organizar los elementos hijos en una fila o columna */
-  margin-top: 80px;/* Agrega un espacio de 80px desde la parte superior del contenedor al borde superior de la página */
-  color:white; /* Establece el color del texto a blanco para mayor contraste sobre fondos oscuros */
-  font-family: Arial, Helvetica, sans-serif;/* Define una fuente sans-serif legible y moderna */
-  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
-} 
-
-
-/*Da propiedad al texto Information Technologies Services*/
-
-.contenedor h1{
-  font-size: 26px;/*tamaño de la letra que se esta utilizando*/
-  width:50%;  /*50% Ocupa todo el ancho de la pantalla, útil para encabezados horizontales. */
-  margin:auto; /*Elimina  el espacio alrededor de la lista para un mejor control del diseño. */
-  margin-bottom:40px; /* Agrega un espacio de 40px desde la parte superior del contenedor al borde superior de la página */
-  justify-content:center;
-} 
- 
-   /*Da propiedad al parrafo que esta de de bajo de lah1*/
-   .contenedor p{ 
-        font-size: 15px;
-        line-height:20px;
-        width: 60%;
-        margin: auto;
-        text-align:justify;
- } 
-
-   /*Da propiedad al boton que esta debajo del parrafo*/
-
-    .contenedor a {  
-       color:white;
-       font-size: 16px;
-       text-decoration:none;
-       border-radius: 30px;  
-       background-color: blueviolet;
-       font-weight:bold;  
-       display: inline-block; 
-       margin-top:30px; 
-       margin-left: 280px;
-       justify-content:center;
-       padding:20px 50px;
-       position: absolute;
-       
-      } 
-
-
-    
-      
-   
-/* mueve a la derecha la imagen que esta dentro del contenedor */
-
-.figura2 img {
-  margin-top:60px ;
-  margin-right: 80px;
-  width: 270px;
-  padding: 12px;
-  border: 1px solid blue;
-  border-radius: 60px;
-  background: darkblue;
-  background-clip: padding-box;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-  transition: border 0.3s ease, border-radius 0.3s ease;
-  text-align: center;
-  
-}
-
-
-.figura2 img:hover {
-  background-color:transparent;
-}
-
-
-
-
-/*Le da sombra o efecto al boton  que esta debajo del parrafo*/
-.contenedor a:hover{ 
-background-color:transparent;
-border:2px solid rgb(68, 68, 164);
-color:aqua;
-
-}  
-
-
-
-.titulo-contenidos { 
-  
-  font-family: sans-serif;
-  font-weight:1000;
-  font-size:27px;
-  color:white;
-  text-align:center;
-  height: 20vh;
-  margin-top: 180px;
-  padding:30px  30px;
-  overflow: hidden;
-  white-space: nowrap;
-  animation: mover 10s linear infinite;
-}  
-
-
-/*Falta el Menu responsive que se oculte el menu cuando se abra por telefonoo table y logo mueva a la izquierda*/ 
-/* Falta documentar lo que falta  de css y mas nada*/
-
-
-.contenidos{ 
-  display:flex;
-  
-  background: linear-gradient(90deg, rgb(232, 229, 232) 0%, rgb(9, 46, 121) 35%, rgb(230, 229, 241) 100%);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  text-align:center ;
-  height: 100vh;
-  padding:40px  30px;
-  margin:auto;
-  
-
-}   
-
-
-.contenidos .servicio{ 
- 
-   height: 220px;
-   width:270px;
-   background:darkblue;
-   border-radius: 15px;
-   padding: 10px 10px;
-   margin:20px;
-   text-align:center;
-   box-shadow:0 5px 5px rgba(0,0,0,.3);
-  transition: border 0.3s ease, border-radius 0.3s ease;
-
-
-}   
-
-.contenidos .servicio:hover{ 
-background-color:transparent;
-}   
- 
-.servicio h3 { 
-  color:white;
-  text-align:center ;
-  font-weight: 900;
-  padding:5px;
-}  
-.servicio p { 
-  color:white;
-  font-size:bold;
-  display: flex;
-  text-align: justify;
- 
- 
-
-}  
-
-.servicio a{ 
-  color:white;
-  font-size: 16px;
-  text-decoration:none;
-  border-radius: 30px;  
-  background-color: blueviolet;
-  font-weight:bold;  
-  display: inline-block; 
-  margin-top:20px; 
-  justify-content:center;
-  padding:10px 30px;
-
-}  
-
-.servicio a:hover{ 
-  background-color:transparent;
-  border:2px solid rgb(68, 68, 164);
-  color:white;
-  
-  }  
-  
-
-
-
-  #contenido2 { 
-    display: flex;
-    height: 70vh;
-    background: linear-gradient(90deg, rgb(243, 243, 246) 0%, rgb(4, 75, 218) 35%, rgb(249, 248, 255) 100%);
-   
-    
-  }   
-
-
-  #contenido2 .fototec{ 
-   
-   height: 290px;
-   width:290px;
-   background:darkblue;
-   border-radius: 15px;
-   padding: 10px 10px;
-   margin:20px;
-   text-align:center;
-   box-shadow:0 5px 5px rgba(0,0,0,.3);
-  
-}
-
-  #contenido2 .fototec:hover{ 
-   
-   height: 290px;
-   width:290px;
-   background:darkblue;
-   border-radius: 15px;
-   padding: 10px 10px;
-   margin:20px;
-   text-align:center;
-   box-shadow:0 5px 5px rgba(0,0,0,.3);
-   background-color:transparent; 
-}
-
- #contenido2 .titutec{ 
-      display: block;
-      color:aliceblue;
-      font-weight: 600px;
-      font-size: bold;
-       padding:50px 30px ;  
-       margin-top:90px ; 
-       justify-content: center; 
-       align-items: center;
-       text-align: center;
-  }   
-  
-
-  #contenido2 .foto{ 
-   
-   height: 290px;
-   width:290px;
-   background:darkblue;
-   border-radius: 15px;
-   padding: 10px 10px;
-   margin:20px;
-   text-align:center;
-   box-shadow:0 5px 5px rgba(0,0,0,.3);
-  
-}
-
-
-  #contenido2 .foto:hover{ 
-   
-   height: 290px;
-   width:290px;
-   background:darkblue;
-   border-radius: 15px;
-   padding: 10px 10px;
-   margin:20px;
-   text-align:center;
-   box-shadow:0 5px 5px rgba(0,0,0,.3);
-   background-color:transparent; 
-}
-
-    
-    
-  
-
-  
-#contenido2 a{ 
-      color:white;
-      
-      font-size: 16px;
-      text-decoration:none;
-      border-radius: 30px;  
-      background-color: blueviolet;
-      font-weight:bold;  
-      padding:10px 30px;
-      
-      
-    }  
-    
-    #contenido2 a:hover{ 
-      
-      background-color:transparent;
-      border:2px solid rgb(68, 68, 164);
-      color:white;
-
-     
-  
-    }  
-
-
-
-  footer{ 
-         
-    width:100%;
-    padding: 50px 0px;
-    height:100%;
-     
-   }  
-   
-  .contenido-footer  { 
-   
-   display:flex; 
-   flex-wrap: wrap;
-   justify-content: space-between;
-   max-width:1200px;
-   margin:auto;
-   margin-top:60px;
-
-  }  
-
-
-  .box-footer { 
-    display:flex;
-    flex-direction:column;
-    padding:40px;
-  } 
- 
- .box-footer .logotipo img { 
- height: 150px;
- width:150px;
- background:darkblue;
- border-radius: 25px;
- padding: 10px 10px;
- margin:20px;
- text-align:center;
- box-shadow:0 5px 5px rgba(0,0,0,.3);
-
-
-
-} 
-   
-.box-footer .logotipo img:hover {
-  background-color:transparent;
-  border-radius: 15px;
-
-
-
-} 
-  
-
-  .box-footer .termino{ 
-    max-width:350px; 
-    margin-top: 20px;
-    font-weight:500px;
-    color:white;
-    font-size: 14px;
-    margin:auto;
-    text-align:justify;
-
-  } 
-
-  .box-footer h2{ 
-    margin-bottom:30px;
-    color:white;
-    font-weight:600;
-    font-size: 20px;
-
-  } 
-   
-  .box-footer a{ 
-    margin-top:10px;
-    color:white;
-    font-weight:600;
-    text-decoration:none;
-   
-    
-  } 
-
-
-  .box-footer a:hover{ 
-    opacity:0.8;
-    color:rgb(210, 47, 255);
-
-
-  } 
-
-  
-
-  .box-footer a .fab{ 
-    opacity:0.8;
-    font-size:20px;
-    color:rgb(210, 47, 255);
-
-
-  } 
-
-  .copy-rigth{ 
-    max-height:1200px;
-    margin:auto;
-    text-align: center;
-    margin-top:150px;
-    padding : 0px 40px;
-   
-  
-  } 
-  .copy-rigth p{ 
-     color:white;
-    margin-top:60px;
-
-  } 
-
-  .copy-rigth hr{ 
-    border:none;
-    height:1px;
-    background-color:white;
-     margin-top:30px;
- 
-  } 
-
-
-/* Estilos básicos */
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-}
-
-nav ul li {
-  position: relative;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px;
-  display: block;
-}
-
-/* Submenús ocultos */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #333;
-  flex-direction: column;
-}
-
-nav ul li:hover .submenu {
-  display: block;
-}
-
-/* Toggle para pantallas pequeñas */
-.menu-toggle {
-  width: 30px;
-  height: 30px;
-  background: url('hamburguesa.png') center/cover no-repeat;
-  cursor: pointer;
-  display: none;
-}
-
-
-
-
-/*Le es la media query para dar responsive el menu para que se pueda ver bien en otros menu*/
-
-  @keyframes mover {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-    
-    
-  
-
-
- 
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
- 
- nav {
     display: none;
-    flex-direction: column;
-    background: #222;
-    padding: 10px;
-  }
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    position: relative;
+}
 
-  nav.active {
+.menu-toggle::before,
+.menu-toggle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #333;
+    transition: 0.3s;
+}
+
+.menu-toggle::before {
+    top: 0;
+    box-shadow: 0 9px 0 #333;
+}
+
+.menu-toggle::after {
+    bottom: 0;
+}
+
+/* =========================================
+   SECCIÓN HERO (INICIO)
+   ========================================= */
+.contenedor {
     display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin: 10px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .submenu {
-    position: static;
-  }
-
-
-
-
-
-
-  
- .nav {
-         /* Oculta el menú principal*/   
-        flex-direction: column;/*- Establece un diseño en columna para cuando se muestre */ 
-        background-color: #333;/* - Le da un fondo oscuro*/ 
-        max-width: 40%;
-       
-}
-/*- Cuando el elemento <nav> tiene la clase .active, se mostrará  - como un contenedor flex visible (display: flex)*/ 
-nav.active {
-display: flex;
-max-height: 100px; /* Ajusta según tu contenido */
-
-
-}
-/*Define un botón o ícono (como el típico "hamburguesa") que debe estar visible y como elemento flex, probablemente para alinear internamente otros elementos.*/ 
-
- 
-  nav ul li {
-    text-align: center;
-    padding: 8px 10px;
-     top: 140px;
-    display:none;
-  }
-
-  
-
-  .menu-toggle {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 5%;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    gap: 40px;
 }
 
-
-
-  nav ul.showing {
-    display: flex;
-  }
-
-
-
+.figura1 {
+    flex: 1;
+}
 
 .figura1 h1 {
-  width: 100%;
-  margin: 0;
-  padding: clamp(30px, 5vw, 100px); /* Ajusta dinámicamente el padding */
-  box-sizing: border-box;
-  font-size: clamp(1.5rem, 5vw, 3rem); /* Título también escalable */
-  text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #111;
+    line-height: 1.2;
 }
 
+.creative {
+    color: #0056b3;
+}
 
+.figura1 p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #444;
+}
 
+.btn, .boton {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #0056b3;
+    color: #ffffff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+}
 
-  
-  
-      
-    
+.btn:hover, .boton:hover {
+    background: #003d82;
+    transform: translateY(-2px);
+}
 
- 
-  .figura2 img{
-    margin-top:160px;
+.figura2 {
+    flex: 1;
     text-align: center;
-    margin-left:20px;
-    } 
-
- .titulo-contenidos h1 {
-  width: 100%;
-  margin: 0;
-  box-sizing: border-box;
-
-  box-sizing: border-box;
-  font-size: clamp(1.5rem, 5vw, 3rem); /* Título también escalable */
-  text-align: center;
- 
 }
 
-
-
-   
-   
-#contenido2 .fototec  {
-   margin-left:110px;
-  
-   background:darkblue;
-   border-radius: 15px;
-   padding: 10px 10px;
-  
-   text-align:center;
-   box-shadow:0 5px 5px rgba(0,0,0,.3);
-
-  
-
-  
- 
-
+.figura2 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-
-
-        
-      
- #contenido2.titutec h1 {
-  width: 100%;
-  margin: 0 auto;
-  padding: clamp(30px, 5vw, 100px);
-  box-sizing: border-box;
-  font-size: clamp(1.5rem, 5vw, 3rem);
-  text-align: center;
-  margin-bottom: 40px; 
-  }
-
- 
- #contenido2.titutec .btn {
-  
-  margin-left:110px;
-  width: 100%;
- 
-  padding: clamp(30px, 5vw, 100px);
-  box-sizing: border-box;
-  font-size: clamp(1.5rem, 5vw, 3rem);
-  text-align: center;
- 
-  
-  }
-
-#contenido2 .foto  {
-   margin-left:110px;
-  
-   background:darkblue;
-   border-radius: 15px;
-   padding: 10px 10px;
-  
-   text-align:center;
-   box-shadow:0 5px 5px rgba(0,0,0,.3);
-
-  
-
-  
- 
-
+/* =========================================
+   PRODUCTOS Y SERVICIOS
+   ========================================= */
+#products-services {
+    padding: 80px 5%;
+    text-align: center;
+    background: #ffffff;
 }
 
+.titulo-contenidos h1 {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: #0056b3;
+}
 
+.contenidos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
 
+.servicio {
+    background: #f8f9fa;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    border: 1px solid #eee;
+}
 
+.servicio:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
 
+.servicio img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
 
- 
+.servicio h3 {
+    margin-bottom: 15px;
+    color: #222;
+    font-size: 1.3rem;
+}
 
+.servicio p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+}
 
+/* =========================================
+   SECCIÓN 2 (ARE YOU READY...)
+   ========================================= */
+#contenido2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 5%;
+    background: #eef2f5;
+    gap: 40px;
+    text-align: center;
+}
 
+#contenido2 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
-.contenedor {
-  flex-direction: column;
-    margin-top:265px;
-    
-        
-  } 
-             
-  
+.titutec h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #222;
+}
 
-  
-  .figura1 a {
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    background: #1a1a1a;
+    color: #ccc;
+    padding: 60px 5% 20px;
+}
+
+.contenido-footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.box-footer h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.box-footer p {
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+.box-footer a {
+    display: block;
+    margin-bottom: 10px;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.box-footer a:hover {
+    color: #0056b3;
+}
+
+.box-footer .logotipo img {
+    width: 80px;
+    border-radius: 5px;
+}
+
+.box-footer i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.box-footer i:hover {
+    color: #0056b3;
+}
+
+.copy-rigth {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9rem;
+}
+
+.copy-rigth hr {
+    border-color: #333;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   MEDIA QUERIES (RESPONSIVE CELULARES)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Activar ícono hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Ocultar y estilizar el menú para móviles */
+    nav {
+        position: absolute;
+        top: 100%;
+        left: -100%; /* Oculto fuera de la pantalla */
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transition: 0.4s ease;
+    }
+
+    /* Clase active (se activa con el onclick de tu HTML) */
+    nav.active {
+        left: 0;
+    }
+
+    nav ul {
         flex-direction: column;
-        margin-left: 160px;
-        align-items: center;
-   } 
-      
-      .contenedor .figura2{
+        gap: 0;
+        text-align: center;
+    }
+
+    nav ul li {
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Submenús estáticos en móviles */
+    .submenu {
+        position: static;
+        box-shadow: none;
+        display: none;
+        background: #f8f9fa;
+    }
+    
+    /* Mostrar submenú al pasar el dedo en móviles (o hacer clic) */
+    nav ul li:hover .submenu {
+        display: flex;
+    }
+
+    /* Ajustes de Secciones para móviles */
+    .contenedor {
         flex-direction: column;
-        margin-top:100px;
-        margin-left:140px;
-        align-items: center;
-        
-    } 
-    
+        text-align: center;
+        padding: 50px 5%;
+    }
 
- 
- 
-     #contenido2{ 
-      
-      display:flex;
-      flex-direction:column;
-      padding:590px  0px;
-      
-      
-    } 
-   
-    
-        
-} 
-    
+    .figura1 h1 {
+        font-size: 2.2rem;
+    }
 
+    #contenido2 {
+        flex-direction: column;
+    }
     
-
-
+    .fototec img, .foto img {
+        width: 100%;
+    }
+}
